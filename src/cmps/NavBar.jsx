@@ -12,7 +12,7 @@ export const _NavBar = () => {
 
       {/* <div className='screen' onClick={toggleMenu}></div> */}
 
-      <img src={require('../img/logo.png')} alt="logo" />
+      <img src={require('../img/logo_green.png')} alt="logo" />
 
       {/* <i className='hamburger fas fa-bars' onClick={toggleMenu}></i>
       <i className='x fas fa-times' onClick={toggleMenu}></i> */}
