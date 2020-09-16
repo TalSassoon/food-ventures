@@ -1,11 +1,42 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+// import { Link } from 'react-router-dom'
+import { UserList } from '../cmps/UserList'
+import { loadUsers } from '../store/actions/userActions'
 
-export class FoodApp extends Component {
+
+class _FoodApp extends Component {
+
+  state = {
+
+  }
+
+  componentDidMount() {
+    this.props.loadUsers()
+  }
+
   render() {
+
+    const { users } = this.props
+
+    if (!users) return <div>Loading...</div>
+
     return (
       <div>
-        BEST FOOD APP
+        <UserList users={users} />
       </div>
     )
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    users: state.userReducer.users
+  }
+}
+
+const mapDispatchToProps = {
+  loadUsers
+}
+
+export const FoodApp = connect(mapStateToProps, mapDispatchToProps)(_FoodApp)
