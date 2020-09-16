@@ -2,34 +2,26 @@ import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
 
 export const _NavBar = () => {
-  
+
   function toggleMenu() {
     document.body.classList.toggle('menu-open')
   }
 
   return (
-    <nav className='nav-bar'>
-      <div className='screen' onClick={toggleMenu}></div>
+    <nav className='nav-bar flex'>
 
-        {/* <img src={require('../logo.png')} alt="logo"/> */}
+      {/* <div className='screen' onClick={toggleMenu}></div> */}
 
-      <i className='hamburger fas fa-bars' onClick={toggleMenu}></i>
-      <i className='x fas fa-times' onClick={toggleMenu}></i>
+      <img src={require('../img/logo.png')} alt="logo" />
 
-      <ul>
-        NAVBAR
-        {/* <Link to='/' onClick={toggleMenu}>
-          <li>Home</li>
-        </Link>
-        <Link to='/toy' onClick={toggleMenu}>
-          <li>Toys</li>
-        </Link>
-        <Link to='/toy/dashboard' onClick={toggleMenu}>
-          <li>Dashboard</li>
-        </Link>
-        <Link to='/toy/about' onClick={toggleMenu}>
-          <li>About</li>
-        </Link> */}
+      {/* <i className='hamburger fas fa-bars' onClick={toggleMenu}></i>
+      <i className='x fas fa-times' onClick={toggleMenu}></i> */}
+
+      <ul className="flex">
+        <Link to='/' onClick={toggleMenu}><li>LINK</li></Link>
+        <Link to='/toy' onClick={toggleMenu}><li>LINK</li></Link>
+        <Link to='/toy/dashboard' onClick={toggleMenu}><li>LINK</li></Link>
+        <Link to='/toy/about' onClick={toggleMenu}><li>LINK</li></Link>
       </ul>
     </nav>
   )
