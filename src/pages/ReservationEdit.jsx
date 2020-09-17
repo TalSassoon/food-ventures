@@ -6,7 +6,6 @@ import { TextField, TextareaAutosize } from '@material-ui/core'
 import { reservationService } from '../services/reservationService'
 import { saveReservation } from '../store/actions/reservationActions'
 
-
 class _ReservationEdit extends React.Component {
 
   state = {
@@ -19,7 +18,7 @@ class _ReservationEdit extends React.Component {
       location: { lang: 26, lat: 27, name: '' },
       guestsCount: 0,
       comments: '',
-      createdAt: Date.now(),
+      createdAt: Date.now()
     }
   }
 

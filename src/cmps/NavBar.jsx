@@ -11,8 +11,7 @@ export const _NavBar = () => {
     <nav className='nav-bar flex'>
 
       {/* <div className='screen' onClick={toggleMenu}></div> */}
-
-      <img src={require('../img/logo_green.png')} alt="logo" />
+      <Link to='/'><img src={require('../img/logo_green.png')} alt="logo" /></Link>
 
       {/* <i className='hamburger fas fa-bars' onClick={toggleMenu}></i>
       <i className='x fas fa-times' onClick={toggleMenu}></i> */}

@@ -22,9 +22,15 @@ class _UserDetails extends Component {
 
     return (
       <div className="user-details">
-        <h3>Details for {user[0].fullName}</h3>
+        <h3>Details for {user.fullName}</h3>
+        <div className="chef-pic-preview">
+          <img src={`${user.imgUrl}`} alt="" style={{ width: '150px' }} />
+          <div>{'⭐'.repeat(user.chef.rating)}</div>
+          <div>{user.chef.tags.join(',')}</div>
+        </div>
         <Link to="/reservation">BOOK NOW</Link>
       </div>
+
     )
   }
 }

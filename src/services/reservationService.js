@@ -1,25 +1,36 @@
+import httpService from './httpService'
+
 export const reservationService = {
+  query,
+  getById,
+  remove,
   save
 }
 
-const reservations = [
-  {
-    _id: 1234,
-    by:{miniUser:''},
-    from:{miniChef:''},
-    status : 'pending/confirmed', 
-    totalPrice: 54,
-    at: 32323,
-    location: { lang: 26, lat: 27, name: 'world' },
-    guestsCount: 0,
-    comments: 'Pitruzilia',
-    createdAt: 4444,
-    updatedAt: 4444
-  }
-]
+// function query(filterBy = {}) {
+//   let queryStr = '?';
+//   for (const key in filterBy) {
+//     queryStr += `${key}=${filterBy[key]}&`;
+//   }
+//   return httpService.get(`reservation${queryStr || ''}`);
+// }
 
-function save(reservation) {
-  reservations.push(reservation)
-  console.log(reservations);
-  return Promise.resolve(reservation)
+function query() {
+  return httpService.get(`reservation`);
+}
+
+function getById(reservationId) {
+  return httpService.get(`reservation/${reservationId}`)
+}
+
+function remove(reservationId) {
+  return httpService.delete(`reservation/${reservationId}`)
+}
+
+async function save(reservation) {
+  if (reservation._id) {
+    return httpService.put(`reservation/${reservation._id}`, reservation)
+  } else {
+    return httpService.post(`reservation`, reservation);
+  }
 }
