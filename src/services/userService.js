@@ -12,7 +12,7 @@ export const userService = {
       userName: 'chef1',
       password: 'secret',
       joinedAt: 32332,
-      imgUrl: '',
+      imgUrl: require('../img/chef1.jpg'),
       chef: {
         imgUrl: '',
         description: 'Big batata',
