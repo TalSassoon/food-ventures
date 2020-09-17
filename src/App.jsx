@@ -8,11 +8,11 @@ import { ReservationEdit } from './pages/ReservationEdit';
 
 function App() {
   return (
-    <div className="App">
+    <div className="app main-container app-container">
       <NavBar/>
       <Switch>
-        <Route component={ReservationEdit} path='/reservation/:id?' />
-        <Route component={UserDetails} path='/details/:id' />
+        <Route component={ReservationEdit} path='/reservation/:reservationId?' />
+        <Route component={UserDetails} path='/details/:userId' />
         <Route component={FoodApp} path='/' />
       </Switch>
     </div>

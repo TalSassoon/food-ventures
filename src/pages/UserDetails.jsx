@@ -23,14 +23,15 @@ class _UserDetails extends Component {
 
     return (
       <div className="user-details">
-        <h3>Details for {user[0].fullName}</h3>
+        <h3>Details for {user.fullName}</h3>
         <div className="chef-pic-preview">
-          <img src={user[0].imgUrl} alt="chef profile picture" style={{maxWidth:100}}/>
-        <div>{'⭐'.repeat(user[0].chef.rating)}</div>
-    <div>{user[0].chef.tags.join(',')}</div>
+          <img src={`${user.imgUrl}`} alt="" style={{ width: '150px' }} />
+          <div>{'⭐'.repeat(user.chef.rating)}</div>
+          <div>{user.chef.tags.join(',')}</div>
         </div>
         <Link to="/reservation">BOOK NOW</Link>
       </div>
+
     )
   }
 }
