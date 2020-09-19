@@ -1,53 +1,62 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
-import { userService } from '../services/userService'
-
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import { ChefGallery } from "../cmps/ChefGallery";
+import { userService } from "../services/userService";
+import { OrderDate } from "../cmps/Calender";
 class _UserDetails extends Component {
-
   state = {
-    user: null
-  }
+    user: null,
+  };
 
   async componentDidMount() {
+<<<<<<< HEAD
     const { userId } = this.props.match.params
     const user = await userService.getById(userId)
     this.setState({ user })
     
+=======
+    const { userId } = this.props.match.params;
+    const user = await userService.getById(userId);
+    this.setState({ user });
+>>>>>>> e2da51c89b9961c26552d9b8b224e1f6533af901
   }
 
   render() {
-
-    const { user} = this.state;
-    if (!user) return <div>Loading...</div>
+    const { user } = this.state;
+    if (!user) return <div>Loading...</div>;
 
     return (
       <div className="user-details">
         <h3>Details for {user.fullName}</h3>
-        <div className="chef-pic-preview">
-          <img src={`${user.imgUrl}`} alt="" style={{ width: '150px' }} />
-          <div>{'⭐'.repeat(user.chef.rating)}</div>
-          <div>{user.chef.tags.join(',')}</div>
+        <div className="chef-gal-details">
+          <div className="chef-pic-preview">
+            <img src={`${user.imgUrl}`} alt="" style={{ width: "150px" }} />
+            <div>{"⭐".repeat(user.chef.rating)}</div>
+            <div>{user.chef.tags.join(",")}</div>
+            <div>addres : {user.chef.location.addres}</div>
+          </div>
+          <ChefGallery user={user} />
         </div>
+        <OrderDate />
         <Link to="/reservation">BOOK NOW</Link>
       </div>
-
-    )
+    );
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    users: state.userReducer.users
-  }
-}
+    users: state.userReducer.users,
+  };
+};
 
-const mapDispatchToProps = {
+const mapDispatchToProps = {};
 
-}
-
-export const UserDetails = connect(mapStateToProps, mapDispatchToProps)(_UserDetails)
-
+export const UserDetails = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(_UserDetails);
 
 // ⭐
 // _id: 'v140',
