@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { ChefGallery } from '../cmps/ChefGallery'
 import { userService } from '../services/userService'
 
 class _UserDetails extends Component {
@@ -12,7 +13,7 @@ class _UserDetails extends Component {
   async componentDidMount() {
     const { userId } = this.props.match.params
     const user = await userService.getById(userId)
-    this.setState({ user }, ()=> console.log(user[0].imgUrl))
+    this.setState({ user })
     
   }
 
@@ -28,8 +29,10 @@ class _UserDetails extends Component {
           <img src={`${user.imgUrl}`} alt="" style={{ width: '150px' }} />
           <div>{'⭐'.repeat(user.chef.rating)}</div>
           <div>{user.chef.tags.join(',')}</div>
+    <div>addres : {user.chef.location.addres}</div>
         </div>
         <Link to="/reservation">BOOK NOW</Link>
+       <ChefGallery user={user} />
       </div>
 
     )
