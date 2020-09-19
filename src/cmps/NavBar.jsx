@@ -1,29 +1,45 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 
-export const _NavBar = () => {
+class _NavBar extends Component {
 
-  function toggleMenu() {
+  state = {
+    isTop: true,
+  };
+
+  componentDidMount() {
+    document.addEventListener('scroll', () => {
+      const isTop = window.scrollY < 100;
+      if (isTop !== this.state.isTop) {
+        this.setState({ isTop })
+      }
+    });
+  }
+
+  toggleMenu() {
     document.body.classList.toggle('menu-open')
   }
 
-  return (
-    <nav className='nav-bar flex'>
+  render() {
+    return (
+      <nav className={"nav-bar flex" + (this.state.isTop ? ' top' : '')}>
 
-      {/* <div className='screen' onClick={toggleMenu}></div> */}
-      <Link to='/'><img src={require('../img/logo_green.png')} alt="logo" /></Link>
+        {/* <div className='screen' onClick={toggleMenu}></div> */}
 
-      {/* <i className='hamburger fas fa-bars' onClick={toggleMenu}></i>
+        <Link to='/'><img src={require('../img/logo.png')} alt="logo" /></Link>
+
+        {/* <i className='hamburger fas fa-bars' onClick={toggleMenu}></i>
       <i className='x fas fa-times' onClick={toggleMenu}></i> */}
 
-      <ul className="flex">
-        <Link to='/' onClick={toggleMenu}><li>LINK</li></Link>
-        <Link to='/toy' onClick={toggleMenu}><li>LINK</li></Link>
-        <Link to='/toy/dashboard' onClick={toggleMenu}><li>LINK</li></Link>
-        <Link to='/toy/about' onClick={toggleMenu}><li>LINK</li></Link>
-      </ul>
-    </nav>
-  )
+        <ul className="flex">
+          <Link to='/chef' onClick={this.toggleMenu}><li>CHEFS</li></Link>
+          <Link to='/' onClick={this.toggleMenu}><li>LOCATIONS</li></Link>
+          <Link to='/' onClick={this.toggleMenu}><li>CUISINES</li></Link>
+          <Link to='/' onClick={this.toggleMenu}><li>ABOUT</li></Link>
+        </ul>
+      </nav>
+    )
+  }
 }
 
 export const NavBar = withRouter(_NavBar)

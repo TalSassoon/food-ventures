@@ -12,7 +12,7 @@ class _UserDetails extends Component {
   async componentDidMount() {
     const { userId } = this.props.match.params
     const user = await userService.getById(userId)
-    this.setState({ user }, ()=> console.log(user[0].imgUrl))
+    this.setState({ user })
     
   }
 

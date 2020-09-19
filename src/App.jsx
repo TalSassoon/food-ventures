@@ -5,14 +5,16 @@ import { NavBar } from './cmps/NavBar';
 import { FoodApp } from './pages/FoodApp';
 import { UserDetails } from './pages/UserDetails';
 import { ReservationEdit } from './pages/ReservationEdit';
+import { Chefs } from './pages/Chefs';
 
 function App() {
   return (
-    <div className="app main-container app-container">
-      <NavBar/>
+    <div>
+      <NavBar />
       <Switch>
         <Route component={ReservationEdit} path='/reservation/:reservationId?' />
         <Route component={UserDetails} path='/details/:userId' />
+        <Route component={Chefs} path='/chef' />
         <Route component={FoodApp} path='/' />
       </Switch>
     </div>

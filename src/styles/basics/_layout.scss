@@ -1,3 +1,58 @@
 .main-container {
+  display: grid;
+  grid-template-columns: 20px 1fr 20px;
+
+  >* {
+    grid-column: 2;
+
+    &.full {
+      grid-column: 1 /-1;
+    }
+  }
+
+  // @include for-narrow-layout {
+  //   grid-template-columns:
+  //     minmax(20px, 1fr) minmax(auto, $mobile-breakpoint) minmax(20px, 1fr);
+  // }
+
+  // @include for-normal-layout {
+  //   grid-template-columns:
+  //     minmax(20px, 1fr) minmax(auto, $narrow-breakpoint) minmax(20px, 1fr);
+  // }
+
+  // @include for-wide-layout {
+  //   grid-template-columns:
+  //     minmax(20px, 1fr) minmax(auto, $normal-breakpoint) minmax(20px, 1fr);
+  // }
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px;
+}
+
+.location-card, .cuisine-card {
+  position: relative;
+  text-align: center;
+  color: $clrw;
+
+  // &::before {
+  //   content: "";
+  //   position: absolute;
+  //   top: 50%;
+  //   left: 50%;
+  //   width: 100%;
+  //   height: 100%;
+  //   background: rgba($color: #000000, $alpha: 0.1);
+  //   transform: translate(-50%, -50%);
+  // }
   
+  h3 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 45px;
+  }
 }
