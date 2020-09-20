@@ -3,3 +3,23 @@
   height: 250px;
   object-fit: cover;
 }
+
+.user-preview-tag {
+  display: inline-block;
+  margin: 10px 2px;
+  text-transform: capitalize;
+  border: 1px solid $clr2;
+  padding: 0 7px;
+  border-radius: 100px;
+  font-size: rem(10px);
+  color: $clr2;
+}
+
+.user-preview-tag:first-child {
+  margin-left: 10px;
+}
+
+.user-preview-location {
+  padding-left: 10px;
+  text-transform: capitalize;
+}

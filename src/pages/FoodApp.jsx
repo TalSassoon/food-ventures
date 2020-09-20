@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Cuisines } from '../cmps/Cuisines'
+import { Footer } from '../cmps/Footer'
 import { Header } from '../cmps/Header'
 import { Locations } from '../cmps/Locations'
 // import { Link } from 'react-router-dom'
@@ -25,6 +26,7 @@ class _FoodApp extends Component {
         <UserList users={users} />
         <Locations />
         <Cuisines />
+        <Footer />
       </div>
     )
   }

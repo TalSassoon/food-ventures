@@ -19,13 +19,16 @@ export function UserPreview({ user }) {
           </div>
         </div>
         <LongTxt text={user.chef.description} />
-        {/* {user.chef.description.map(ta)} */}
-        <p className="p10" style={{ color: '#ffbf00' }}><i className="fas fa-star"></i> {user.chef.rating.toFixed(1)} <span style={{ color: '#b5b6ba' }}>({user.chef.ratingNum} ratings)</span></p>
-        <div className="flex-between p10" style={{ borderTop: '1px solid #b5b6ba' }}>
-          <i className="fas fa-heart flex-center" style={{ color: '#b5b6ba' }}></i>
-          <p>Starting at ${user.chef.price}</p>
+        <div className="user-preview-tags-container">
+          {user.chef.tags.map((tag, idx) => <p className="user-preview-tag" key={idx}>{tag}</p>)}
         </div>
+        <p className="user-preview-location">Location - {user.chef.location.name}</p>
+        <p className="p10" style={{ color: '#ffbf00' }}><i className="fas fa-star"></i> {user.chef.rating.toFixed(1)} <span style={{ color: '#b5b6ba' }}>({user.chef.ratingNum} ratings)</span></p>
       </Link>
+      <div className="flex-between p10" style={{ borderTop: '1px solid #b5b6ba' }}>
+        <i className="fas fa-heart flex-center" style={{ color: '#b5b6ba', cursor: 'pointer' }}></i>
+        <p>Starting at ${user.chef.price}</p>
+      </div>
     </div>
   )
 }
