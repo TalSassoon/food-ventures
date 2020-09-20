@@ -10,16 +10,9 @@ class _UserDetails extends Component {
   };
 
   async componentDidMount() {
-<<<<<<< HEAD
-    const { userId } = this.props.match.params
-    const user = await userService.getById(userId)
-    this.setState({ user })
-    
-=======
     const { userId } = this.props.match.params;
     const user = await userService.getById(userId);
     this.setState({ user });
->>>>>>> e2da51c89b9961c26552d9b8b224e1f6533af901
   }
 
   render() {
