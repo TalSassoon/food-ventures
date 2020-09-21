@@ -14,7 +14,7 @@ function App() {
     <div>
       <NavBar />
       <Switch>
-        <Route component={ReservationEdit} path='/reservation/:reservationId?' />
+        {/* <Route component={ReservationEdit} path='/reservation/:reservationId?' /> */}
         <Route component={ReservationPage} path='/reservations' />
         <Route component={UserDetails} path='/details/:userId' />
         <Route component={Chefs} path='/chef' />

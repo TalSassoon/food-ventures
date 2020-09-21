@@ -4,15 +4,27 @@ import { Link } from "react-router-dom";
 import { ChefGallery } from "../cmps/ChefGallery";
 import { userService } from "../services/userService";
 import { OrderDate } from "../cmps/Calender";
+import { ReservationEdit } from '../pages/ReservationEdit'
+import { FoodApp } from "./FoodApp";
+
 class _UserDetails extends Component {
   state = {
     user: null,
+    isShow: false
   };
 
   async componentDidMount() {
     const { userId } = this.props.match.params;
     const user = await userService.getById(userId);
     this.setState({ user });
+  }
+
+  openModal = () => {
+    this.setState({ isShow: true })
+  }
+
+  closeModal = () => {
+    this.setState({ isShow: false })
   }
 
   render() {
@@ -39,15 +51,17 @@ class _UserDetails extends Component {
         <section className="chef-details-order">
           <div className="details">
             <p>
-              
-             {user.chef.about}
+
+              {user.chef.about}
             </p>
           </div>
           <OrderDate />
         </section>
-        <Link to="/reservation">BOOK NOW</Link>
+        {/* <Link to="/reservation">BOOK NOW</Link> */}
+       <button onClick={this.openModal}>BOOK NOW</button>
+        {this.state.isShow && <ReservationEdit user={`${user._id}`} onCloseModal={this.closeModal} />}
       </div>
-      );
+    );
   }
 }
 
