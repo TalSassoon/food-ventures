@@ -10,11 +10,11 @@ export class ChefGallery  extends Component {
     return (
       <div className="carousel">
     <Carousel swipeable={true} autoPlay infiniteLoop width={300} interval={4000} showThumbs={false} transitionTime="500">
-    {user.chef.imgs.map(img => <div className="carousel-img" style={{backgroundImage: "url(" + img +")" , height :180, width : 300}} key={user._id}  />)}
-            
+    {user.chef.imgs.map(img => <img className="carousel-img" src={img} alt="k" key={user._id}  />)}
         </Carousel>
       </div>
     );
   }
 }
+{/* <div className="carousel-img" style={{backgroundImage: "url(" + img +")" , height :180, width : 300}} key={user._id}  />)} */}
 // {user.chef.imgUrl.map(img => <img src={img} alt="Tasty Food" key={user._id} />)}

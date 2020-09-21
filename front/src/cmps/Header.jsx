@@ -10,8 +10,8 @@ export class Header extends Component {
   render() {
     return (
       <section className="header full">
-        {/* <h3>Bringing the ultimate food experience to you</h3>
-        <h4>Cuisines from around the world</h4> */}
+        <h3>Delivering you the ultimate food experience</h3>
+        <h4>Cuisines from around the world</h4>
         <div className="arrow" onClick={this.scrollDown} style={{cursor: 'pointer'}}>
           <span></span>
           <span></span>

@@ -1,14 +1,24 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-// import { Link } from 'react-router-dom'
+
 import { UserList } from '../cmps/UserList'
+import { Filter } from '../cmps/Filter'
 import { loadUsers } from '../store/actions/userActions'
 
 
 class _Chefs extends Component {
 
+  state = {
+    filterBy: {}
+  }
+
   componentDidMount() {
     this.props.loadUsers()
+    window.scrollTo(0,0)
+  }
+
+  onSetFilter = (filterBy) => {
+    this.setState(prevState => ({ filterBy: { ...prevState.filterBy, ...filterBy } }), () =>  this.props.loadUsers(this.state.filterBy))
   }
 
   render() {
@@ -18,6 +28,7 @@ class _Chefs extends Component {
 
     return (
       <div className="main-container">
+        <Filter onSetFilter={this.onSetFilter} />
         <UserList users={users} />
       </div>
     )

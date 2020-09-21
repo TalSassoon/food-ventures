@@ -1,8 +1,8 @@
 import { userService } from '../../services/userService'
 
-export function loadUsers() {
+export function loadUsers(filterBy) {
     return async dispatch => {
-        const users = await userService.query()
+        const users = await userService.query(filterBy)
         dispatch({ type: 'SET_USERS', users })
     }
 }
