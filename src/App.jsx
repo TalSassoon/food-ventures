@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Switch, Route } from 'react-router-dom';
 import { NavBar } from './cmps/NavBar';
+import { Footer } from './cmps/Footer';
 import { FoodApp } from './pages/FoodApp';
 import { UserDetails } from './pages/UserDetails';
 import { ReservationEdit } from './pages/ReservationEdit';
@@ -17,6 +18,7 @@ function App() {
         <Route component={Chefs} path='/chef' />
         <Route component={FoodApp} path='/' />
       </Switch>
+      <Footer />
     </div>
   );
 }
