@@ -20,21 +20,34 @@ class _UserDetails extends Component {
     if (!user) return <div>Loading...</div>;
 
     return (
-      <div className="user-details" style={{ paddingTop: '70px' }}>
+      <div className="user-details" style={{ paddingTop: "70px" }}>
         <h3>Details for {user.fullName}</h3>
-        <div className="chef-gal-details">
+        <section className="chef-gal-details">
           <div className="chef-pic-preview">
             <img src={`${user.imgUrl}`} alt="" style={{ width: "150px" }} />
-            <div>{"⭐".repeat(user.chef.rating)}</div>
+            <p style={{ color: "#ffbf00" }}>
+              <i className="fas fa-star"></i> {user.chef.rating.toFixed(1)}{" "}
+              <span style={{ color: "#b5b6ba" }}>
+                ({user.chef.ratingNum} ratings)
+              </span>
+            </p>
             <div>{user.chef.tags.join(",")}</div>
             <div>addres : {user.chef.location.addres}</div>
           </div>
           <ChefGallery user={user} />
-        </div>
-        <OrderDate />
+        </section>
+        <section className="chef-details-order">
+          <div className="details">
+            <p>
+              
+             {user.chef.about}
+            </p>
+          </div>
+          <OrderDate />
+        </section>
         <Link to="/reservation">BOOK NOW</Link>
       </div>
-    );
+      );
   }
 }
 

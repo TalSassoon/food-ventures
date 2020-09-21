@@ -12,10 +12,10 @@ class _FoodApp extends Component {
 
   componentDidMount() {
     this.props.loadUsers()
+  
   }
 
   render() {
-
     const users = this.props.users.slice(0, 4)
     if (!users) return <div>Loading...</div>
 
